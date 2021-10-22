@@ -122,7 +122,7 @@
 		9A7EB22C2008B6E700A991E2 /* ZJPickerViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9ABC758F2240EB3A00730C94 /* ZJPickerView */,
+				9ABC758F2240EB3A00730C94 /* ZFPickerView */,
 				9A7EB22D2008B6E700A991E2 /* AppDelegate.h */,
 				9A7EB22E2008B6E700A991E2 /* AppDelegate.m */,
 				9A7EB2302008B6E700A991E2 /* ViewController.h */,
@@ -161,7 +161,7 @@
 			path = ZJPickerViewDemoUITests;
 			sourceTree = "<group>";
 		};
-		9ABC758F2240EB3A00730C94 /* ZJPickerView */ = {
+		9ABC758F2240EB3A00730C94 /* ZFPickerView */ = {
 			isa = PBXGroup;
 			children = (
 				9ABC75902240EB3A00730C94 /* ZJPickerView.h */,
@@ -171,8 +171,8 @@
 				60BF011D253ADFC80040F70C /* ZJPickerViewConfig.h */,
 				60BF011E253ADFC80040F70C /* ZJPickerViewConfig.m */,
 			);
-			name = ZJPickerView;
-			path = ../../ZJPickerView;
+			name = ZFPickerView;
+			path = ../../ZFPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,7 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZJPickerViewDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZJPickerViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -499,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZJPickerViewDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZJPickerViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
