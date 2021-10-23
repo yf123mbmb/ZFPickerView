@@ -177,11 +177,13 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
         if (i > component) {
             [pickerView selectRow:0 inComponent:i animated:YES];
         }
-        
+        //修改过
         if (self.config.isShowSelectContent) {
-            [selectString appendString:[self pickerView:pickerView titleForRow:[pickerView selectedRowInComponent:i] forComponent:i]];
+            NSInteger row = [pickerView selectedRowInComponent:i];
+            NSString *str =  [self pickerView:pickerView titleForRow:row forComponent:i];
+            [selectString appendString: [NSString stringWithFormat:@"%@",str]];
             if (i == self.component - 1) {
-                self.tipLabel.text = selectString;
+               // self.tipLabel.text = selectString;
             }
         }
     }
@@ -247,7 +249,12 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     if (sender.tag == 1) {
         NSMutableString *selectString = [[NSMutableString alloc] init];
         for (NSUInteger i = 0; i < self.component; i++) {
-            [selectString appendString:[self pickerView:self.pickerView titleForRow:[self.pickerView selectedRowInComponent:i] forComponent:i]];
+           
+            NSInteger row = [self.pickerView selectedRowInComponent:i];
+            NSString *str =  [self pickerView:self.pickerView titleForRow:row forComponent:i];
+            [selectString appendString: [NSString stringWithFormat:@"%@_%ld",str,(long)row]];
+       
+            
             if (i != self.component - 1) { // 多行用 "," 分割
                 [selectString appendString:self.config.dividedSymbol];
             }
