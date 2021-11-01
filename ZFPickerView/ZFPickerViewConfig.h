@@ -1,6 +1,6 @@
 //
-//  ZJPickerViewConfig.h
-//  ZJPickerViewConfig <https://github.com/Abnerzj/ZJPickerView>
+//  ZFPickerViewConfig.h
+//  ZFPickerViewConfig <https://github.com/Abnerzj/ZFPickerView>
 //
 //  Created by Abnerzj on 2020/10/17.
 //  Copyright © 2017年 Abnerzj. All rights reserved.
@@ -14,9 +14,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define kZJPickerViewDefaultThemeColor [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] // 默认主题颜色
+#define kZFPickerViewDefaultThemeColor [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] // 默认主题颜色
 
-@interface ZJPickerViewConfig : NSObject
+@interface ZFPickerViewConfig : NSObject
 
 
 /////////////////////////////////// 蒙层视图（maskView）/////////////////////////////////
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /////////////////////////////////// 标题栏中间label（titleLabel）///////////////////////////
 
-/** 设置 titleLabel 的 text（重要提示：多列时建议已选择的内容用英文逗号隔开，参考`ZJPickerViewPropertyIsDividedSelectContentKey`这个key） */
+/** 设置 titleLabel 的 text（重要提示：多列时建议已选择的内容用英文逗号隔开，参考`ZFPickerViewPropertyIsDividedSelectContentKey`这个key） */
 @property (nullable, nonatomic, copy) NSString *titleLabelText;
 
 /** 设置 titleLabel 文本颜色 */

@@ -1,13 +1,13 @@
 //
 //  ViewController.m
-//  ZJPickerViewDemo
+//  ZFPickerViewDemo
 //
 //  Created by Abnerzj on 2018/1/12.
 //  Copyright © 2018年 Abnerzj. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "ZJPickerView.h"
+#import "ZFPickerView.h"
 #import "UIColor+ZJ.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -41,7 +41,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"ZJPickerViewCell";
+    static NSString *ID = @"ZFPickerViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
@@ -84,7 +84,7 @@
 - (void)showPickerViewByConfigWithDataList:(NSArray *)dataList
 {
     // 1.Custom propery（自定义配置）
-    ZJPickerViewConfig *config = [[ZJPickerViewConfig alloc] init];
+    ZFPickerViewConfig *config = [[ZFPickerViewConfig alloc] init];
     
     config.maskAlpha = 0.5f;
     config.isTouchMaskHide = YES;
@@ -120,8 +120,8 @@
     
     // 2.Show（显示）
     __weak typeof(_selectContentLabel) weak_selectContentLabel = _selectContentLabel;
-    [ZJPickerView zj_showWithDataList:dataList config:config completion:^(NSString *selectContent) {
-        NSLog(@"ZJPickerView log tip：---> selectContent:%@", selectContent);
+    [ZFPickerView zj_showWithDataList:dataList config:config completion:^(NSString *selectContent) {
+        NSLog(@"ZFPickerView log tip：---> selectContent:%@", selectContent);
 
         // show select content
         NSArray *selectStrings = [selectContent componentsSeparatedByString:@","];
@@ -140,35 +140,35 @@
 {
     // 1.Custom propery（自定义属性，根据需要添加想要的属性。PS：如果在多个地方使用到自定义弹框，建议把propertyDict定义为一个宏或全局变量）
     NSDictionary *propertyDict = @{
-//                                   ZJPickerViewPropertyCanceBtnTitleKey : @"取消",
-//                                   ZJPickerViewPropertySureBtnTitleKey  : @"确定",
-//                                   ZJPickerViewPropertyTipLabelTextKey  : @"上海,虹口区", // @"提示内容"，多列时推荐使用英文逗号隔开，参考注释
-//                                   ZJPickerViewPropertyDividedSymbolKey : @"#", // 选中内容的分隔符，默认英文逗号
-                                   ZJPickerViewPropertyTipLabelTextKey  : [_selectContentLabel.text substringFromIndex:5], // @"提示内容"
-                                   ZJPickerViewPropertyCanceBtnTitleColorKey : [UIColor zj_colorWithHexString:@"#A9A9A9"],
-                                   ZJPickerViewPropertySureBtnTitleColorKey : [UIColor zj_colorWithHexString:@"#FF6347"],
-                                   ZJPickerViewPropertyTipLabelTextColorKey : [UIColor zj_colorWithHexString:@"#231F20"],
-                                   ZJPickerViewPropertyLineViewBackgroundColorKey : [UIColor zj_colorWithHexString:@"#dedede"],
-                                   ZJPickerViewPropertyCanceBtnTitleFontKey : [UIFont systemFontOfSize:17.0f],
-                                   ZJPickerViewPropertySureBtnTitleFontKey : [UIFont systemFontOfSize:17.0f],
-                                   ZJPickerViewPropertyTipLabelTextFontKey : [UIFont systemFontOfSize:17.0f],
-                                   ZJPickerViewPropertyPickerViewHeightKey : @300.0f,
-                                   ZJPickerViewPropertyOneComponentRowHeightKey : @40.0f,
-                                   ZJPickerViewPropertySelectRowTitleAttrKey : @{NSForegroundColorAttributeName : [UIColor zj_colorWithHexString:@"#FF6347"], NSFontAttributeName : [UIFont systemFontOfSize:20.0f]},
-                                   ZJPickerViewPropertyUnSelectRowTitleAttrKey : @{NSForegroundColorAttributeName : [UIColor zj_colorWithHexString:@"#A9A9A9"], NSFontAttributeName : [UIFont systemFontOfSize:20.0f]},
-                                   ZJPickerViewPropertySelectRowLineBackgroundColorKey : [UIColor zj_colorWithHexString:@"#dedede"],
-//                                   ZJPickerViewPropertySelectRowLineBackgroundColorKey : [[UIColor redColor] colorWithAlphaComponent:0.12], // iOS 14+
-                                   ZJPickerViewPropertyIsTouchBackgroundHideKey : @YES,
-//                                   ZJPickerViewPropertyIsShowTipLabelKey : @YES,
-                                   ZJPickerViewPropertyIsShowSelectContentKey : @YES,
-                                   ZJPickerViewPropertyIsScrollToSelectedRowKey: @YES,
-//                                   ZJPickerViewPropertyIsDividedSelectContentKey: @YES, // 选择的内容是否已经用英文逗号隔开
-                                   ZJPickerViewPropertyIsAnimationShowKey : @YES};
+//                                   ZFPickerViewPropertyCanceBtnTitleKey : @"取消",
+//                                   ZFPickerViewPropertySureBtnTitleKey  : @"确定",
+//                                   ZFPickerViewPropertyTipLabelTextKey  : @"上海,虹口区", // @"提示内容"，多列时推荐使用英文逗号隔开，参考注释
+//                                   ZFPickerViewPropertyDividedSymbolKey : @"#", // 选中内容的分隔符，默认英文逗号
+                                   ZFPickerViewPropertyTipLabelTextKey  : [_selectContentLabel.text substringFromIndex:5], // @"提示内容"
+                                   ZFPickerViewPropertyCanceBtnTitleColorKey : [UIColor zj_colorWithHexString:@"#A9A9A9"],
+                                   ZFPickerViewPropertySureBtnTitleColorKey : [UIColor zj_colorWithHexString:@"#FF6347"],
+                                   ZFPickerViewPropertyTipLabelTextColorKey : [UIColor zj_colorWithHexString:@"#231F20"],
+                                   ZFPickerViewPropertyLineViewBackgroundColorKey : [UIColor zj_colorWithHexString:@"#dedede"],
+                                   ZFPickerViewPropertyCanceBtnTitleFontKey : [UIFont systemFontOfSize:17.0f],
+                                   ZFPickerViewPropertySureBtnTitleFontKey : [UIFont systemFontOfSize:17.0f],
+                                   ZFPickerViewPropertyTipLabelTextFontKey : [UIFont systemFontOfSize:17.0f],
+                                   ZFPickerViewPropertyPickerViewHeightKey : @300.0f,
+                                   ZFPickerViewPropertyOneComponentRowHeightKey : @40.0f,
+                                   ZFPickerViewPropertySelectRowTitleAttrKey : @{NSForegroundColorAttributeName : [UIColor zj_colorWithHexString:@"#FF6347"], NSFontAttributeName : [UIFont systemFontOfSize:20.0f]},
+                                   ZFPickerViewPropertyUnSelectRowTitleAttrKey : @{NSForegroundColorAttributeName : [UIColor zj_colorWithHexString:@"#A9A9A9"], NSFontAttributeName : [UIFont systemFontOfSize:20.0f]},
+                                   ZFPickerViewPropertySelectRowLineBackgroundColorKey : [UIColor zj_colorWithHexString:@"#dedede"],
+//                                   ZFPickerViewPropertySelectRowLineBackgroundColorKey : [[UIColor redColor] colorWithAlphaComponent:0.12], // iOS 14+
+                                   ZFPickerViewPropertyIsTouchBackgroundHideKey : @YES,
+//                                   ZFPickerViewPropertyIsShowTipLabelKey : @YES,
+                                   ZFPickerViewPropertyIsShowSelectContentKey : @YES,
+                                   ZFPickerViewPropertyIsScrollToSelectedRowKey: @YES,
+//                                   ZFPickerViewPropertyIsDividedSelectContentKey: @YES, // 选择的内容是否已经用英文逗号隔开
+                                   ZFPickerViewPropertyIsAnimationShowKey : @YES};
     
     // 2.Show（显示）
     __weak typeof(_selectContentLabel) weak_selectContentLabel = _selectContentLabel;
-    [ZJPickerView zj_showWithDataList:dataList propertyDict:propertyDict completion:^(NSString *selectContent) {
-        NSLog(@"ZJPickerView log tip：---> selectContent:%@", selectContent);
+    [ZFPickerView zj_showWithDataList:dataList propertyDict:propertyDict completion:^(NSString *selectContent) {
+        NSLog(@"ZFPickerView log tip：---> selectContent:%@", selectContent);
 
         // show select content
         NSArray *selectStrings = [selectContent componentsSeparatedByString:@","];

@@ -1,6 +1,6 @@
 //
-//  ZJPickerView.m
-//  ZJPickerView <https://github.com/Abnerzj/ZJPickerView>
+//  ZFPickerView.m
+//  ZFPickerView <https://github.com/Abnerzj/ZFPickerView>
 //
 //  Created by Abnerzj on 2018/1/12.
 //  Copyright © 2017年 Abnerzj. All rights reserved.
@@ -9,16 +9,16 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "ZJPickerView.h"
+#import "ZFPickerView.h"
 
 static const CGFloat toolViewHeight = 44.0f; // tool view height
 static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button height
 
-@interface ZJPickerView ()<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ZFPickerView ()<UIPickerViewDataSource, UIPickerViewDelegate>
 
 // property
 @property (nonatomic, strong) NSMutableArray *dataList; // data list
-@property (nonatomic, strong) ZJPickerViewConfig *config; // custom style
+@property (nonatomic, strong) ZFPickerViewConfig *config; // custom style
 @property (nonatomic, copy) void(^completion)(NSString * _Nullable  selectContent); // select content
 @property (nonatomic, assign) NSUInteger component; // component numbers, default 0
 @property (nonatomic, assign) BOOL isSettedSelectRowLineBackgroundColor; // is setted select row top and bottom line backgroundColor, default NO
@@ -34,11 +34,11 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
 
 @end
 
-@implementation ZJPickerView
+@implementation ZFPickerView
 
-+ (ZJPickerView *)sharedView {
++ (ZFPickerView *)sharedView {
     static dispatch_once_t once;
-    static ZJPickerView *sharedView;
+    static ZFPickerView *sharedView;
     dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; });
     return sharedView;
 }
@@ -47,7 +47,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
 - (instancetype)initWithFrame:(CGRect)frame {
     if((self = [super initWithFrame:frame])) {
         self.dataList = [NSMutableArray array];
-        self.config = [ZJPickerViewConfig defaultConfig];
+        self.config = [ZFPickerViewConfig defaultConfig];
         [self initSubViews];
     }
     return self;
@@ -102,7 +102,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     // sure button
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     sureBtn.frame = CGRectMake(toolView.frame.size.width - canceBtnWidth, 0, canceBtnWidth, toolView.frame.size.height);
-    [sureBtn setTitleColor:kZJPickerViewDefaultThemeColor forState:UIControlStateNormal];
+    [sureBtn setTitleColor:kZFPickerViewDefaultThemeColor forState:UIControlStateNormal];
     [sureBtn setTitle:self.config.sureBtnTitle forState:UIControlStateNormal];
     [sureBtn.titleLabel setFont:self.config.sureTextFont];
     [sureBtn setTag:1];
@@ -111,7 +111,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     
     // center title
     UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(canceBtn.frame.size.width, 0, toolView.frame.size.width - canceBtn.frame.size.width*2, toolView.frame.size.height)];
-    tipLabel.text = self.config.titleLabelText;
+    //tipLabel.text = self.config.titleLabelText;
     tipLabel.textColor = self.config.titleTextColor;
     tipLabel.font = self.config.titleTextFont;
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -198,7 +198,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
 {
     // set separateline color
     // discussion: Fix iOS 14+ setting the color of the selected line dividing line crashes
-    // reference: https://github.com/Abnerzj/ZJPickerView/issues/9
+    // reference: https://github.com/Abnerzj/ZFPickerView/issues/9
     if (NO == self.isSettedSelectRowLineBackgroundColor) {
         for (UIView *singleLine in pickerView.subviews) {
             if (singleLine.frame.size.height < 1.0f) { // under iOS 13, height = 0.5f;
@@ -223,7 +223,10 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
         pickerLabel.adjustsFontSizeToFitWidth = YES;
         pickerLabel.backgroundColor = [UIColor clearColor];
     }
+    pickerLabel.frame = CGRectMake(0, 0, self.pickerView.frame.size.width/2-20, 60);
+    pickerLabel.adjustsFontSizeToFitWidth = YES;
     pickerLabel.attributedText = [self pickerView:pickerView attributedTitleForRow:row forComponent:component];
+    //pickerLabel.backgroundColor = UIColor.redColor;
     
     return pickerLabel;
 }
@@ -277,7 +280,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
 
 #pragma mark - show & hide method
 + (void)zj_showWithDataList:(nonnull NSArray *)dataList
-                     config:(nullable ZJPickerViewConfig *)config
+                     config:(nullable ZFPickerViewConfig *)config
                  completion:(nullable void(^)(NSString * _Nullable selectContent))completion
 {
     // no data
@@ -288,7 +291,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     // handle data
     [[self sharedView] initDefaultConfig];
     [[self sharedView].dataList addObjectsFromArray:dataList];
-    [[self sharedView] setConfig:config ?: [ZJPickerViewConfig defaultConfig]];
+    [[self sharedView] setConfig:config ?: [ZFPickerViewConfig defaultConfig]];
     [[self sharedView] updateCustomProperiesConfig];
      
     // calculate component num
@@ -300,7 +303,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
         [self sharedView].component++;
         [self handleDictDataList:dataList];
     } else {
-        NSLog(@"ZJPickerView error tip：\"Unsupported data type\"");
+        NSLog(@"ZFPickerView error tip：\"Unsupported data type\"");
         return;
     }
     
@@ -349,7 +352,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                propertyDict:(nullable NSDictionary *)propertyDict
                  completion:(nullable void(^)(NSString * _Nullable selectContent))completion
 {
-    [self zj_showWithDataList:dataList config:[ZJPickerViewConfig configWithPropertyDict:propertyDict] completion:completion];
+    [self zj_showWithDataList:dataList config:[ZFPickerViewConfig configWithPropertyDict:propertyDict] completion:completion];
 }
 
 - (void)zj_hide
@@ -458,9 +461,11 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
 - (void)scrollToSelectedRow
 {
     NSString *selectedContent = self.config.titleLabelText;
+    NSArray  *array = [selectedContent componentsSeparatedByString:@","];
+
     NSMutableArray *selectContentList = [NSMutableArray arrayWithCapacity:self.component];
     if (self.config.isDividedSelectContent) {
-        // reference: https://github.com/Abnerzj/ZJPickerView/issues/8
+        // reference: https://github.com/Abnerzj/ZFPickerView/issues/8
         NSArray *tempSelectContentList = [selectedContent componentsSeparatedByString:self.config.dividedSymbol];
         if (tempSelectContentList && tempSelectContentList.count == self.component) {
             [selectContentList addObjectsFromArray:tempSelectContentList];
@@ -484,11 +489,17 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                         if (selectContentList.count > 0) {
                             isCanScrollToSelectePosition = [selectContentList[i] isEqualToString:title];
                         } else {
-                            // discussion: scroll to select row error when solving content similar, only appear when there is only one component.
-                            // reference: https://github.com/Abnerzj/ZJPickerView/issues/4
-                            //            https://github.com/Abnerzj/ZJPickerView/issues/5
+
                             NSRange range = [selectedContent rangeOfString:title];
                             isCanScrollToSelectePosition = (self.component == 1) ? ([selectedContent isEqualToString:title]) : (range.location != NSNotFound);
+                            if(i<array.count){
+                                NSString *selectTitle = array[i];
+                                if(selectTitle == title){
+                                    isCanScrollToSelectePosition = true;
+                                }else{
+                                    isCanScrollToSelectePosition = false;
+                                }
+                            }
                         }
                         
                         if (isCanScrollToSelectePosition) {
@@ -497,17 +508,27 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                             [weakself.pickerView selectRow:idx inComponent:i animated:NO];
                             [weakself.pickerView reloadComponent:i];
                             *stop = YES;
+                            //解决有了0列，没有第二列数据的情况
+                            if(![selectedContent containsString:@","]){
+                                [self.pickerView selectRow:0 inComponent:1 animated:NO];
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                    [self.pickerView reloadComponent:1];
+                                    
+                                });
+                            }
                         }
                     }
                 }];
             }
         }
-    }
-    if (tempSelectedRowArray.count != self.component) {
-        for (NSUInteger i = 0; i < self.component; i++) {
-            [self.pickerView selectRow:0 inComponent:i animated:NO];
+    }else{
+        if (tempSelectedRowArray.count != self.component) {
+            for (NSUInteger i = 0; i < self.component; i++) {
+                [self.pickerView selectRow:0 inComponent:i animated:NO];
+            }
         }
     }
+    
 }
 
 @end

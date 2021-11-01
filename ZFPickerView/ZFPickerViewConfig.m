@@ -1,6 +1,6 @@
 //
-//  ZJPickerViewConfig.m
-//  ZJPickerViewConfig <https://github.com/Abnerzj/ZJPickerView>
+//  ZFPickerViewConfig.m
+//  ZFPickerViewConfig <https://github.com/Abnerzj/ZFPickerView>
 //
 //  Created by Abnerzj on 2020/10/17.
 //  Copyright © 2017年 Abnerzj. All rights reserved.
@@ -9,13 +9,13 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "ZJPickerViewConfig.h"
-#import "ZJPickerViewProperty.h"
+#import "ZFPickerViewConfig.h"
+#import "ZFPickerViewProperty.h"
 
 static NSString * const kDividedSymbol = @","; // divided symbol
 
 
-@implementation ZJPickerViewConfig
+@implementation ZFPickerViewConfig
 
 - (instancetype)init {
     if (self == [super init]) {
@@ -26,67 +26,67 @@ static NSString * const kDividedSymbol = @","; // divided symbol
 
 + (instancetype)defaultConfig
 {
-    ZJPickerViewConfig *config = [[ZJPickerViewConfig alloc] init];
+    ZFPickerViewConfig *config = [[ZFPickerViewConfig alloc] init];
     return config;
 }
 
 + (instancetype)configWithPropertyDict:(nullable NSDictionary *)propertyDict
 {
-    ZJPickerViewConfig *config = [self defaultConfig];
+    ZFPickerViewConfig *config = [self defaultConfig];
     
     [propertyDict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         if (obj) {
-            if ([key isEqualToString:ZJPickerViewPropertyCanceBtnTitleKey]) {
+            if ([key isEqualToString:ZFPickerViewPropertyCanceBtnTitleKey]) {
                 config.cancelBtnTitle = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertySureBtnTitleKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertySureBtnTitleKey]) {
                 config.sureBtnTitle = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyTipLabelTextKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyTipLabelTextKey]) {
                 config.titleLabelText = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyDividedSymbolKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyDividedSymbolKey]) {
                 config.dividedSymbol = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyCanceBtnTitleColorKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyCanceBtnTitleColorKey]) {
                 config.cancelTextColor = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertySureBtnTitleColorKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertySureBtnTitleColorKey]) {
                 config.sureTextColor = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyTipLabelTextColorKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyTipLabelTextColorKey]) {
                 config.titleTextColor = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyLineViewBackgroundColorKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyLineViewBackgroundColorKey]) {
                 config.titleLineColor = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyCanceBtnTitleFontKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyCanceBtnTitleFontKey]) {
                 config.cancelTextFont = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertySureBtnTitleFontKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertySureBtnTitleFontKey]) {
                 config.sureTextFont = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyTipLabelTextFontKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyTipLabelTextFontKey]) {
                 config.titleTextFont = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyPickerViewHeightKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyPickerViewHeightKey]) {
                 config.pickerViewHeight = [obj floatValue];
-            } else if ([key isEqualToString:ZJPickerViewPropertyOneComponentRowHeightKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyOneComponentRowHeightKey]) {
                 config.rowHeight = [obj floatValue];
-            } else if ([key isEqualToString:ZJPickerViewPropertySelectRowTitleAttrKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertySelectRowTitleAttrKey]) {
                 config.selectRowTitleAttribute = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyUnSelectRowTitleAttrKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyUnSelectRowTitleAttrKey]) {
                 config.unSelectRowTitleAttribute = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertySelectRowLineBackgroundColorKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertySelectRowLineBackgroundColorKey]) {
                 config.separatorColor = obj;
-            } else if ([key isEqualToString:ZJPickerViewPropertyIsTouchBackgroundHideKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyIsTouchBackgroundHideKey]) {
                 config.isTouchMaskHide = [obj boolValue];
-            } else if ([key isEqualToString:ZJPickerViewPropertyIsShowTipLabelKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyIsShowTipLabelKey]) {
                 config.hiddenTitleLabel = ![obj boolValue];
                 if (config.isShowSelectContent) {
                     config.hiddenTitleLabel = NO;
                 }
-            } else if ([key isEqualToString:ZJPickerViewPropertyIsShowSelectContentKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyIsShowSelectContentKey]) {
                 config.isShowSelectContent = [obj boolValue];
                 if (config.isShowSelectContent) {
                     config.hiddenTitleLabel = NO;
                 }
-            } else if ([key isEqualToString:ZJPickerViewPropertyIsScrollToSelectedRowKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyIsScrollToSelectedRowKey]) {
                 config.isScrollToSelectedRow = [obj boolValue];
-            } else if ([key isEqualToString:ZJPickerViewPropertyIsDividedSelectContentKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyIsDividedSelectContentKey]) {
                 config.isDividedSelectContent = [obj boolValue];
-            } else if ([key isEqualToString:ZJPickerViewPropertyBackgroundAlphaKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyBackgroundAlphaKey]) {
                 config.maskAlpha = [obj floatValue];
-            } else if ([key isEqualToString:ZJPickerViewPropertyIsAnimationShowKey]) {
+            } else if ([key isEqualToString:ZFPickerViewPropertyIsAnimationShowKey]) {
                 config.isAnimationShow = [obj boolValue];
             }
         }
@@ -104,7 +104,7 @@ static NSString * const kDividedSymbol = @","; // divided symbol
     
     self.pickerViewHeight = 216.0f;
     self.rowHeight = 32.0f;
-    self.selectRowTitleAttribute = @{NSForegroundColorAttributeName : kZJPickerViewDefaultThemeColor, NSFontAttributeName : [UIFont systemFontOfSize:20.0f]};
+    self.selectRowTitleAttribute = @{NSForegroundColorAttributeName : kZFPickerViewDefaultThemeColor, NSFontAttributeName : [UIFont systemFontOfSize:20.0f]};
     self.unSelectRowTitleAttribute = @{NSForegroundColorAttributeName : [UIColor lightGrayColor], NSFontAttributeName : [UIFont systemFontOfSize:20.0f]};
     if (@available(iOS 14.0, *)) {
         self.separatorColor = [UIColor tertiarySystemFillColor];
@@ -113,7 +113,7 @@ static NSString * const kDividedSymbol = @","; // divided symbol
     }
     self.isScrollToSelectedRow = NO;
     self.sureBtnTitle = diffLanguageTitles.lastObject;
-    self.sureTextColor = kZJPickerViewDefaultThemeColor;
+    self.sureTextColor = kZFPickerViewDefaultThemeColor;
     self.sureTextFont = [UIFont systemFontOfSize:17.0];
     
     self.cancelBtnTitle = diffLanguageTitles.firstObject;

@@ -1,18 +1,18 @@
 //
-//  ZJPickerViewModel.m
-//  ZJPickerViewDemo
+//  ZFPickerViewModel.m
+//  ZFPickerViewDemo
 //
 //  Created by abner on 2018/1/12.
 //  Copyright © 2018年 Abnerzj. All rights reserved.
 //
 
-#import "ZJPickerViewModel.h"
+#import "ZFPickerViewModel.h"
 
-@implementation ZJPickerViewModel
+@implementation ZFPickerViewModel
 
 + (instancetype)initWithDict:(NSDictionary *)dict
 {
-    ZJPickerViewModel *model = [[ZJPickerViewModel alloc] init];
+    ZFPickerViewModel *model = [[ZFPickerViewModel alloc] init];
     
     if (dict) {
         model.name = dict.allKeys.firstObject;

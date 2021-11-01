@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60BF0113253ACBAE0040F70C /* ZJPickerViewProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BF0112253ACBAE0040F70C /* ZJPickerViewProperty.m */; };
-		60BF011F253ADFC80040F70C /* ZJPickerViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BF011E253ADFC80040F70C /* ZJPickerViewConfig.m */; };
+		3C878F1A272F83DF00E6A44C /* ZFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C878F14272F83DF00E6A44C /* ZFPickerView.m */; };
+		3C878F1B272F83DF00E6A44C /* ZFPickerViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C878F15272F83DF00E6A44C /* ZFPickerViewConfig.m */; };
+		3C878F1C272F83DF00E6A44C /* ZFPickerViewProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C878F18272F83DF00E6A44C /* ZFPickerViewProperty.m */; };
+		3C878F1F272F83ED00E6A44C /* ZFPickerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C878F1E272F83ED00E6A44C /* ZFPickerViewModel.m */; };
 		9A0E92A5200C48E2004A5879 /* CityData2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A0E92A4200C48E2004A5879 /* CityData2.plist */; };
 		9A693BD5200C533C00E88E41 /* UIColor+ZJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A693BD4200C533C00E88E41 /* UIColor+ZJ.m */; };
-		9A693BD9200CB8D100E88E41 /* ZJPickerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A693BD8200CB8D100E88E41 /* ZJPickerViewModel.m */; };
 		9A693BDB200CC5DA00E88E41 /* CityData3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A693BDA200CC5DA00E88E41 /* CityData3.txt */; };
 		9A7EB22F2008B6E700A991E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EB22E2008B6E700A991E2 /* AppDelegate.m */; };
 		9A7EB2322008B6E700A991E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EB2312008B6E700A991E2 /* ViewController.m */; };
@@ -21,7 +22,6 @@
 		9A7EB23D2008B6E700A991E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EB23C2008B6E700A991E2 /* main.m */; };
 		9A7EB2472008B6E700A991E2 /* ZJPickerViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EB2462008B6E700A991E2 /* ZJPickerViewDemoTests.m */; };
 		9A7EB2522008B6E700A991E2 /* ZJPickerViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EB2512008B6E700A991E2 /* ZJPickerViewDemoUITests.m */; };
-		9ABC75922240EB3A00730C94 /* ZJPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC75912240EB3A00730C94 /* ZJPickerView.m */; };
 		9AEBE3562008C7EB00AB2788 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AEBE3552008C7EB00AB2788 /* CityData.plist */; };
 /* End PBXBuildFile section */
 
@@ -43,15 +43,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		60BF0111253ACBAE0040F70C /* ZJPickerViewProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJPickerViewProperty.h; sourceTree = "<group>"; };
-		60BF0112253ACBAE0040F70C /* ZJPickerViewProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPickerViewProperty.m; sourceTree = "<group>"; };
-		60BF011D253ADFC80040F70C /* ZJPickerViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJPickerViewConfig.h; sourceTree = "<group>"; };
-		60BF011E253ADFC80040F70C /* ZJPickerViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPickerViewConfig.m; sourceTree = "<group>"; };
+		3C878F14272F83DF00E6A44C /* ZFPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPickerView.m; sourceTree = "<group>"; };
+		3C878F15272F83DF00E6A44C /* ZFPickerViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPickerViewConfig.m; sourceTree = "<group>"; };
+		3C878F16272F83DF00E6A44C /* ZFPickerViewProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPickerViewProperty.h; sourceTree = "<group>"; };
+		3C878F17272F83DF00E6A44C /* ZFPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPickerView.h; sourceTree = "<group>"; };
+		3C878F18272F83DF00E6A44C /* ZFPickerViewProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPickerViewProperty.m; sourceTree = "<group>"; };
+		3C878F19272F83DF00E6A44C /* ZFPickerViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPickerViewConfig.h; sourceTree = "<group>"; };
+		3C878F1D272F83ED00E6A44C /* ZFPickerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPickerViewModel.h; sourceTree = "<group>"; };
+		3C878F1E272F83ED00E6A44C /* ZFPickerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPickerViewModel.m; sourceTree = "<group>"; };
 		9A0E92A4200C48E2004A5879 /* CityData2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData2.plist; sourceTree = "<group>"; };
 		9A693BD3200C533C00E88E41 /* UIColor+ZJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZJ.h"; sourceTree = "<group>"; };
 		9A693BD4200C533C00E88E41 /* UIColor+ZJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZJ.m"; sourceTree = "<group>"; };
-		9A693BD7200CB8D100E88E41 /* ZJPickerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJPickerViewModel.h; sourceTree = "<group>"; };
-		9A693BD8200CB8D100E88E41 /* ZJPickerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJPickerViewModel.m; sourceTree = "<group>"; };
 		9A693BDA200CC5DA00E88E41 /* CityData3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CityData3.txt; sourceTree = "<group>"; };
 		9A7EB22A2008B6E700A991E2 /* ZJPickerViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJPickerViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A7EB22D2008B6E700A991E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,8 +71,6 @@
 		9A7EB24D2008B6E700A991E2 /* ZJPickerViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZJPickerViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A7EB2512008B6E700A991E2 /* ZJPickerViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPickerViewDemoUITests.m; sourceTree = "<group>"; };
 		9A7EB2532008B6E700A991E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9ABC75902240EB3A00730C94 /* ZJPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJPickerView.h; sourceTree = "<group>"; };
-		9ABC75912240EB3A00730C94 /* ZJPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJPickerView.m; sourceTree = "<group>"; };
 		9AEBE3552008C7EB00AB2788 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +99,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C878F13272F83DF00E6A44C /* ZFPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				3C878F14272F83DF00E6A44C /* ZFPickerView.m */,
+				3C878F15272F83DF00E6A44C /* ZFPickerViewConfig.m */,
+				3C878F16272F83DF00E6A44C /* ZFPickerViewProperty.h */,
+				3C878F17272F83DF00E6A44C /* ZFPickerView.h */,
+				3C878F18272F83DF00E6A44C /* ZFPickerViewProperty.m */,
+				3C878F19272F83DF00E6A44C /* ZFPickerViewConfig.h */,
+			);
+			name = ZFPickerView;
+			path = ../../ZFPickerView;
+			sourceTree = "<group>";
+		};
 		9A7EB2212008B6E600A991E2 = {
 			isa = PBXGroup;
 			children = (
@@ -122,23 +136,23 @@
 		9A7EB22C2008B6E700A991E2 /* ZJPickerViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9ABC758F2240EB3A00730C94 /* ZFPickerView */,
 				9A7EB22D2008B6E700A991E2 /* AppDelegate.h */,
 				9A7EB22E2008B6E700A991E2 /* AppDelegate.m */,
-				9A7EB2302008B6E700A991E2 /* ViewController.h */,
-				9A7EB2312008B6E700A991E2 /* ViewController.m */,
-				9A693BD3200C533C00E88E41 /* UIColor+ZJ.h */,
-				9A693BD4200C533C00E88E41 /* UIColor+ZJ.m */,
-				9A693BD7200CB8D100E88E41 /* ZJPickerViewModel.h */,
-				9A693BD8200CB8D100E88E41 /* ZJPickerViewModel.m */,
-				9A7EB2332008B6E700A991E2 /* Main.storyboard */,
 				9A7EB2362008B6E700A991E2 /* Assets.xcassets */,
-				9A7EB2382008B6E700A991E2 /* LaunchScreen.storyboard */,
-				9A7EB23B2008B6E700A991E2 /* Info.plist */,
-				9A7EB23C2008B6E700A991E2 /* main.m */,
 				9AEBE3552008C7EB00AB2788 /* CityData.plist */,
 				9A0E92A4200C48E2004A5879 /* CityData2.plist */,
 				9A693BDA200CC5DA00E88E41 /* CityData3.txt */,
+				9A7EB23B2008B6E700A991E2 /* Info.plist */,
+				9A7EB2382008B6E700A991E2 /* LaunchScreen.storyboard */,
+				9A7EB23C2008B6E700A991E2 /* main.m */,
+				9A7EB2332008B6E700A991E2 /* Main.storyboard */,
+				9A693BD3200C533C00E88E41 /* UIColor+ZJ.h */,
+				9A693BD4200C533C00E88E41 /* UIColor+ZJ.m */,
+				9A7EB2302008B6E700A991E2 /* ViewController.h */,
+				9A7EB2312008B6E700A991E2 /* ViewController.m */,
+				3C878F13272F83DF00E6A44C /* ZFPickerView */,
+				3C878F1D272F83ED00E6A44C /* ZFPickerViewModel.h */,
+				3C878F1E272F83ED00E6A44C /* ZFPickerViewModel.m */,
 			);
 			path = ZJPickerViewDemo;
 			sourceTree = "<group>";
@@ -159,20 +173,6 @@
 				9A7EB2532008B6E700A991E2 /* Info.plist */,
 			);
 			path = ZJPickerViewDemoUITests;
-			sourceTree = "<group>";
-		};
-		9ABC758F2240EB3A00730C94 /* ZFPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				9ABC75902240EB3A00730C94 /* ZJPickerView.h */,
-				9ABC75912240EB3A00730C94 /* ZJPickerView.m */,
-				60BF0111253ACBAE0040F70C /* ZJPickerViewProperty.h */,
-				60BF0112253ACBAE0040F70C /* ZJPickerViewProperty.m */,
-				60BF011D253ADFC80040F70C /* ZJPickerViewConfig.h */,
-				60BF011E253ADFC80040F70C /* ZJPickerViewConfig.m */,
-			);
-			name = ZFPickerView;
-			path = ../../ZFPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,13 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A693BD9200CB8D100E88E41 /* ZJPickerViewModel.m in Sources */,
+				3C878F1F272F83ED00E6A44C /* ZFPickerViewModel.m in Sources */,
 				9A7EB2322008B6E700A991E2 /* ViewController.m in Sources */,
-				9ABC75922240EB3A00730C94 /* ZJPickerView.m in Sources */,
+				3C878F1A272F83DF00E6A44C /* ZFPickerView.m in Sources */,
 				9A693BD5200C533C00E88E41 /* UIColor+ZJ.m in Sources */,
+				3C878F1C272F83DF00E6A44C /* ZFPickerViewProperty.m in Sources */,
 				9A7EB23D2008B6E700A991E2 /* main.m in Sources */,
-				60BF0113253ACBAE0040F70C /* ZJPickerViewProperty.m in Sources */,
-				60BF011F253ADFC80040F70C /* ZJPickerViewConfig.m in Sources */,
+				3C878F1B272F83DF00E6A44C /* ZFPickerViewConfig.m in Sources */,
 				9A7EB22F2008B6E700A991E2 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

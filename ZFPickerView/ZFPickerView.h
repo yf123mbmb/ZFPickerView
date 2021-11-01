@@ -1,6 +1,6 @@
 //
-//  ZJPickerView.h
-//  ZJPickerView <https://github.com/Abnerzj/ZJPickerView>
+//  ZFPickerView.h
+//  ZFPickerView <https://github.com/Abnerzj/ZFPickerView>
 //
 //  Created by Abnerzj on 2018/1/12.
 //  Copyright © 2017年 Abnerzj. All rights reserved.
@@ -10,11 +10,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZJPickerViewProperty.h"
-#import "ZJPickerViewConfig.h"
+#import "ZFPickerViewProperty.h"
+#import "ZFPickerViewConfig.h"
 
 
-@interface ZJPickerView : UIView
+@interface ZFPickerView : UIView
 
 /**
  Show pickerView（显示pickerView）
@@ -25,7 +25,7 @@
  @param completion Click sure button callback（点击确定按钮时回调）
  */
 + (void)zj_showWithDataList:(nonnull NSArray *)dataList
-                     config:(nullable ZJPickerViewConfig *)config
+                     config:(nullable ZFPickerViewConfig *)config
                  completion:(nullable void(^)(NSString * _Nullable selectContent))completion;
 
 /**
