@@ -508,13 +508,15 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                             [weakself.pickerView selectRow:idx inComponent:i animated:NO];
                             [weakself.pickerView reloadComponent:i];
                             *stop = YES;
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                [self.pickerView reloadAllComponents];
+                                [weakself.pickerView selectRow:idx inComponent:i animated:NO];
+                                //
+                            });
                             //解决有了0列，没有第二列数据的情况
                             if(![selectedContent containsString:@","]){
                                 [self.pickerView selectRow:0 inComponent:1 animated:NO];
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                                    [self.pickerView reloadComponent:1];
-                                    
-                                });
+                               
                             }
                         }
                     }
