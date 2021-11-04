@@ -201,11 +201,12 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     // reference: https://github.com/Abnerzj/ZFPickerView/issues/9
     if (NO == self.isSettedSelectRowLineBackgroundColor) {
         for (UIView *singleLine in pickerView.subviews) {
+            //singleLine.backgroundColor = [UIColor redColor];
             if (singleLine.frame.size.height < 1.0f) { // under iOS 13, height = 0.5f;
                 singleLine.backgroundColor = self.config.separatorColor;
                 self.isSettedSelectRowLineBackgroundColor = YES;
             }
-            else if (singleLine.frame.size.height == 42.0f) { // iOS 14+, select
+            else if (singleLine.frame.size.height == 46.0f) { // iOS 14+, select
                 singleLine.backgroundColor = self.config.separatorColor;
                 self.isSettedSelectRowLineBackgroundColor = YES;
             }
