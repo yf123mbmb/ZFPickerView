@@ -495,7 +495,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                             isCanScrollToSelectePosition = (self.component == 1) ? ([selectedContent isEqualToString:title]) : (range.location != NSNotFound);
                             if(i<array.count){
                                 NSString *selectTitle = array[i];
-                                if([selectTitle containsString:title]){
+                                if([selectTitle isEqualToString:title]){
                                     isCanScrollToSelectePosition = true;
                                 }else{
                                     isCanScrollToSelectePosition = false;
