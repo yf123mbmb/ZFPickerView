@@ -516,7 +516,7 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                             });
                             //解决有了0列，没有第二列数据的情况
                             if(![selectedContent containsString:@","]){
-                                [self.pickerView selectRow:0 inComponent:1 animated:NO];
+                               // [self.pickerView selectRow:0 inComponent:1 animated:NO];
                                
                             }
                         }
