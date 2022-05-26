@@ -25,18 +25,18 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
 
 // subviews
 @property (nonatomic, strong) UIView *maskView;
-@property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) UIPickerView *pickerView;
 @property (nonatomic, strong) UIButton *canceBtn;
 @property (nonatomic, strong) UIButton *sureBtn;
 @property (nonatomic, strong) UILabel *tipLabel;
 @property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UIView *toolView;
 
 @end
 
 @implementation ZFPickerView
 
-+ (ZFPickerView *)sharedView {
++ (ZFPickerView *)sharedView
+{
     static dispatch_once_t once;
     static ZFPickerView *sharedView;
     dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; });
@@ -85,46 +85,46 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     [self addSubview:contentView];
     
     // tool view
-    UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, toolViewHeight)];
-    toolView.backgroundColor = [UIColor whiteColor];
-    [contentView addSubview:toolView];
+    _toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, toolViewHeight)];
+    _toolView.backgroundColor = [UIColor whiteColor];
+    [contentView addSubview:_toolView];
     
     // cance button
     UIButton *canceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    canceBtn.frame = CGRectMake(0, 0, canceBtnWidth, toolView.frame.size.height);
+    canceBtn.frame = CGRectMake(0, 0, canceBtnWidth, _toolView.frame.size.height);
     [canceBtn setTitleColor:self.config.cancelTextColor forState:UIControlStateNormal];
     [canceBtn setTitle:self.config.cancelBtnTitle forState:UIControlStateNormal];
     [canceBtn.titleLabel setFont:self.config.cancelTextFont];
     [canceBtn setTag:0];
     [canceBtn addTarget:self action:@selector(userAction:) forControlEvents:UIControlEventTouchUpInside];
-    [toolView addSubview:canceBtn];
+    [_toolView addSubview:canceBtn];
     
     // sure button
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sureBtn.frame = CGRectMake(toolView.frame.size.width - canceBtnWidth, 0, canceBtnWidth, toolView.frame.size.height);
+    sureBtn.frame = CGRectMake(_toolView.frame.size.width - canceBtnWidth, 0, canceBtnWidth, _toolView.frame.size.height);
     [sureBtn setTitleColor:kZFPickerViewDefaultThemeColor forState:UIControlStateNormal];
     [sureBtn setTitle:self.config.sureBtnTitle forState:UIControlStateNormal];
     [sureBtn.titleLabel setFont:self.config.sureTextFont];
     [sureBtn setTag:1];
     [sureBtn addTarget:self action:@selector(userAction:) forControlEvents:UIControlEventTouchUpInside];
-    [toolView addSubview:sureBtn];
+    [_toolView addSubview:sureBtn];
     
     // center title
-    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(canceBtn.frame.size.width, 0, toolView.frame.size.width - canceBtn.frame.size.width*2, toolView.frame.size.height)];
+    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(canceBtn.frame.size.width, 0, _toolView.frame.size.width - canceBtn.frame.size.width*2, _toolView.frame.size.height)];
     //tipLabel.text = self.config.titleLabelText;
     tipLabel.textColor = self.config.titleTextColor;
     tipLabel.font = self.config.titleTextFont;
     tipLabel.textAlignment = NSTextAlignmentCenter;
     tipLabel.hidden = self.config.hiddenTitleLabel;
-    [toolView addSubview:tipLabel];
+    [_toolView addSubview:tipLabel];
     
     // line view
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, toolView.frame.size.height - 0.5f, self.frame.size.width, 0.5f)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _toolView.frame.size.height - 0.5f, self.frame.size.width, 0.5f)];
     lineView.backgroundColor = self.config.titleLineColor;
-    [toolView addSubview:lineView];
+    [_toolView addSubview:lineView];
     
     // pickerView
-    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, toolView.frame.size.height, self.frame.size.width, self.config.pickerViewHeight)];
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, _toolView.frame.size.height, self.frame.size.width, self.config.pickerViewHeight)];
     pickerView.dataSource = self;
     pickerView.delegate = self;
     [contentView addSubview:pickerView];
@@ -206,10 +206,11 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
                 singleLine.backgroundColor = self.config.separatorColor;
                 self.isSettedSelectRowLineBackgroundColor = YES;
             }
-            else if (singleLine.frame.size.height == 46.0f) { // iOS 14+, select
+            else if (singleLine.frame.size.height == (_config.rowHeight+2)) { // iOS 14+, select
                 singleLine.backgroundColor = self.config.separatorColor;
                 self.isSettedSelectRowLineBackgroundColor = YES;
             }
+            NSLog(@"=======%f",singleLine.frame.size.height);
         }
     }
     
@@ -451,10 +452,11 @@ static const CGFloat canceBtnWidth = 68.0f; // cance button or sure button heigh
     [self.sureBtn setTitleColor:self.config.sureTextColor forState:UIControlStateNormal];
     [self.sureBtn.titleLabel setFont:self.config.sureTextFont];
     
-    self.tipLabel.text = self.config.titleLabelText;
+    self.tipLabel.text = self.config.titleLabelText_title;
     self.tipLabel.textColor = self.config.titleTextColor;
     self.tipLabel.font = self.config.titleTextFont;
     self.tipLabel.hidden = self.config.hiddenTitleLabel;
+    self.toolView.backgroundColor = self.config.titleLabelBGColor;
     
     self.lineView.backgroundColor = self.config.titleLineColor;
 }

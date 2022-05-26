@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZFPickerView'
-  s.version          = '1.0.10'
+  s.version          = '1.1.0'
   s.summary          = '自定义pickview'
 
 # This description is used to generate tags and improve search results.

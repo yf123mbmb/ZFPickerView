@@ -42,7 +42,11 @@ static NSString * const kDividedSymbol = @","; // divided symbol
                 config.sureBtnTitle = obj;
             } else if ([key isEqualToString:ZFPickerViewPropertyTipLabelTextKey]) {
                 config.titleLabelText = obj;
-            } else if ([key isEqualToString:ZFPickerViewPropertyDividedSymbolKey]) {
+            }
+            else if ([key isEqualToString:ZFPickerViewPropertyTipLabelTextKey_title]) {
+               config.titleLabelText_title = obj;
+            }
+            else if ([key isEqualToString:ZFPickerViewPropertyDividedSymbolKey]) {
                 config.dividedSymbol = obj;
             } else if ([key isEqualToString:ZFPickerViewPropertyCanceBtnTitleColorKey]) {
                 config.cancelTextColor = obj;
@@ -122,6 +126,7 @@ static NSString * const kDividedSymbol = @","; // divided symbol
     
     self.titleLabelText = @"";
     self.titleTextColor = [UIColor darkTextColor];
+    self.titleLabelBGColor = [UIColor whiteColor];
     self.titleTextFont = [UIFont systemFontOfSize:17.0];
     self.titleLineColor = [UIColor colorWithRed:222.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
     self.dividedSymbol = kDividedSymbol;

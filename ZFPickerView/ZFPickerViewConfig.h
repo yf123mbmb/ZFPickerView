@@ -77,6 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 设置 titleLabel 的 text（重要提示：多列时建议已选择的内容用英文逗号隔开，参考`ZFPickerViewPropertyIsDividedSelectContentKey`这个key） */
 @property (nullable, nonatomic, copy) NSString *titleLabelText;
+@property (nullable, nonatomic, copy) NSString *titleLabelText_title;
+
+@property (nullable, nonatomic, copy) UIColor *titleLabelBGColor;
 
 /** 设置 titleLabel 文本颜色 */
 @property (nullable, nonatomic, strong) UIColor *titleTextColor;

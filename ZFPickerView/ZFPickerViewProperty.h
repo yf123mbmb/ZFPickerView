@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString * _Nonnull const ZFPickerViewPropertyCanceBtnTitleKey; // cance button Title（取消按钮）
 extern NSString * _Nonnull const ZFPickerViewPropertySureBtnTitleKey;  // sure button Title（确定按钮）
 extern NSString * _Nonnull const ZFPickerViewPropertyTipLabelTextKey;  // tipLabel text（选择提示标签，tips: When multi component, recommended the selected content be separated by commas. 重要提示：多列时建议已选择的内容用英文逗号隔开，参考`ZFPickerViewPropertyIsDividedSelectContentKey`这个key）
+extern NSString * _Nonnull const ZFPickerViewPropertyTipLabelTextKey_title;
 extern NSString * _Nonnull const ZFPickerViewPropertyDividedSymbolKey;  // divided symbol, default commas （选中内容的分隔符，默认英文逗号）
 
 // color: UIColor type

@@ -15,6 +15,9 @@
 
 
 @interface ZFPickerView : UIView
++ (ZFPickerView *)sharedView;
+@property (nonatomic, strong) UIPickerView *pickerView;
+@property (nonatomic, strong) UIView *contentView;
 
 /**
  Show pickerView（显示pickerView）

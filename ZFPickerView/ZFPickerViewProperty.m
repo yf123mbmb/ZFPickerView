@@ -17,6 +17,8 @@
 NSString * const ZFPickerViewPropertyCanceBtnTitleKey = @"ZFPickerViewPropertyCanceBtnTitleKey";
 NSString * const ZFPickerViewPropertySureBtnTitleKey = @"ZFPickerViewPropertySureBtnTitleKey";
 NSString * const ZFPickerViewPropertyTipLabelTextKey = @"ZFPickerViewPropertyTipLabelTextKey";
+NSString * const ZFPickerViewPropertyTipLabelTextKey_title = @"ZFPickerViewPropertyTipLabelTextKey_title";
+
 NSString * const ZFPickerViewPropertyDividedSymbolKey = @"ZFPickerViewPropertyDividedSymbolKey";
 
 // color: UIColor type
